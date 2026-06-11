@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniStart - Plataforma Digital de Apoio Acadêmico</title>
+    <!-- Importação de Fontes e Ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --purple-main: #6f42c1;
+            --purple-dark: #5a32a3;
+            --purple-light: #f4effd;
+            --turquoise: #00ced1;
+            --turquoise-dark: #00b5b8;
+            --turquoise-light: #e6fafa;
+            --black-text: #121212;
+            --gray-text: #4a4a4a;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--black-text);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Topo Institucional - UNISANTA */
+        .inst-banner {
+            background-color: var(--black-text);
+            color: var(--white);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 8px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--turquoise);
+        }
+
+        .inst-banner span strong { color: var(--turquoise); }
+
+        /* Header e Navegação */
+        header {
+            background-color: var(--white);
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+
+        /* Logo com Símbolo de Play */
+        .logo-play {
+            background: linear-gradient(135deg, var(--purple-main), var(--turquoise));
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            padding-left: 4px;
+            box-shadow: 0 4px 10px rgba(0, 206, 209, 0.3);
+        }
+
+        .logo-text { font-size: 1.6rem; font-weight: 700; color: var(--black-text); letter-spacing: -0.5px; }
+        .logo-text span { color: var(--purple-main); }
+
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+        nav ul li a { text-decoration: none; color: var(--black-text); font-weight: 600; font-size: 0.95rem; transition: var(--transition); }
+        nav ul li a:hover { color: var(--purple-main); }
+
+        .btn-login { background: none; border: 2px solid var(--purple-main); color: var(--purple-main); padding: 8px 18px; border-radius: 30px; font-weight: 600; cursor: pointer; transition: var(--transition); }
+        .btn-login:hover { background-color: var(--purple-light); }
+
+        .btn-cta { background-color: var(--purple-main); color: var(--white) !important; padding: 10px 20px; border-radius: 30px; transition: var(--transition); border: none; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 600; }
+        .btn-cta:hover { background-color: var(--purple-dark); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(111, 66, 193, 0.3); }
+
+        /* Componente de Perfil na Navbar */
+        .user-nav-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--black-text);
+            padding: 6px 14px;
+            border-radius: 30px;
+            background-color: var(--bg-light);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        .user-nav-profile:hover {
+            background-color: var(--purple-light);
+            color: var(--purple-main);
+            border-color: var(--purple-main);
+        }
+
+        /* Hero Section */
+        .hero { background: linear-gradient(135deg, var(--white) 60%, var(--purple-light) 100%); padding: 80px 10%; display: flex; align-items: center; justify-content: space-between; gap: 50px; }
+        .hero-content { max-width: 600px; }
+        .hero-tag { background-color: var(--turquoise-light); color: var(--turquoise-dark); padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; display: inline-block; margin-bottom: 20px; text-transform: uppercase; }
+        .hero h1 { font-size: 2.8rem; font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--black-text); }
+        .hero h1 span { background: linear-gradient(to right, var(--purple-main), var(--turquoise-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.1rem; color: var(--gray-text); margin-bottom: 30px; }
+
+        /* Seção dos Módulos */
+        .modules-section { padding: 80px 10%; background-color: var(--white); }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 50px auto; }
+        .section-header h2 { font-size: 2.2rem; margin-bottom: 15px; position: relative; display: inline-block; }
+        .section-header h2::after { content: ''; position: absolute; width: 60px; height: 4px; background-color: var(--turquoise); bottom: -8px; left: 50%; transform: translateX(-50%); border-radius: 2px; }
+
+        .grid-modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .module-card { background-color: var(--bg-light); border-radius: 16px; padding: 30px; border: 1px solid rgba(0,0,0,0.04); transition: var(--transition); display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; }
+        .module-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--purple-light); background-color: var(--white); }
+        .module-icon { width: 50px; height: 50px; background-color: var(--purple-light); color: var(--purple-main); border-radius: 12px; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; margin-bottom: 20px; }
+        .module-card h3 { font-size: 1.3rem; margin-bottom: 12px; }
+        .module-card p { color: var(--gray-text); font-size: 0.95rem; margin-bottom: 20px; }
+        .module-link { text-decoration: none; color: var(--purple-main); font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+
+        /* MODAL DE AUTENTICAÇÃO INTEGRADO */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; pointer-events: none; transition: var(--transition); }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-card { background-color: var(--white); padding: 40px; border-radius: 24px; width: 100%; max-width: 450px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; transform: scale(0.9); transition: var(--transition); }
+        .modal-overlay.active .modal-card { transform: scale(1); }
+        .close-modal { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray-text); }
+        
+        .modal-tabs { display: flex; border-bottom: 2px solid #e9ecef; margin-bottom: 25px; gap: 20px; }
+        .modal-tab { padding-bottom: 10px; font-weight: 700; font-size: 1.1rem; color: var(--gray-text); cursor: pointer; border-bottom: 3px solid transparent; transition: var(--transition); }
+        .modal-tab.active { color: var(--purple-main); border-bottom-color: var(--purple-main); }
+        
+        .form-group { margin-bottom: 18px; display: flex; flex-direction: column; gap: 6px; }
+        .form-group label { font-size: 0.85rem; font-weight: 600; color: var(--black-text); }
+        .form-group input { padding: 12px 16px; border: 2px solid #e9ecef; border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--black-text); transition: var(--transition); }
+        .form-group input:focus { outline: none; border-color: var(--purple-main); }
+        
+        .auth-form { display: none; }
+        .auth-form.active { display: block; }
+        .toggle-form-link { text-align: center; font-size: 0.85rem; color: var(--purple-main); cursor: pointer; margin-top: 15px; font-weight: 600; display: block; }
+
+        /* ELEMENTOS DO POPUP DE INFORMAÇÕES PESSOAIS (PERFIL) */
+        .profile-avatar-box {
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, var(--turquoise), var(--purple-main));
+            color: var(--white); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 2.2rem; margin: 5px auto 20px auto;
+            box-shadow: 0 4px 15px rgba(111, 66, 193, 0.2);
+        }
+        .profile-info-grid {
+            display: flex; flex-direction: column; gap: 12px;
+            background: var(--bg-light); padding: 20px;
+            border-radius: 14px; text-align: left; margin-bottom: 25px;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .profile-info-item { display: flex; flex-direction: column; gap: 2px; border-bottom: 1px solid #e9ecef; padding-bottom: 8px; }
+        .profile-info-item:last-child { border: none; padding-bottom: 0; }
+        .profile-info-item span { font-size: 0.75rem; color: var(--gray-text); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .profile-info-item strong { font-size: 0.95rem; color: var(--black-text); }
+
+        /* TELA DE DASHBOARD INTERNO */
+        .dashboard-section { display: none; padding: 60px 10%; background-color: var(--bg-light); min-height: 80vh; }
+        .welcome-box { background: var(--white); padding: 30px; border-radius: 16px; box-shadow: var(--shadow); margin-bottom: 40px; border-left: 6px solid var(--turquoise); }
+        .btn-logout { background: none; border: 1px solid #dc3545; color: #dc3545; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-weight: 600; transition: var(--transition); width: 100%; font-family: 'Inter', sans-serif; }
+        .btn-logout:hover { background-color: #dc3545; color: var(--white); }
+
+        footer { background-color: var(--black-text); color: var(--white); padding: 50px 10% 20px 10%; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; border-bottom: 1px solid #2d2d2d; padding-bottom: 40px; }
+        .footer-about h4 { font-size: 1.2rem; margin-bottom: 15px; color: var(--turquoise); }
+        .footer-about p { color: #b3b3b3; font-size: 0.9rem; }
+        .footer-bottom { padding-top: 20px; text-align: center; font-size: 0.8rem; color: #777777; }
+    </style>
+</head>
+<body>
+
+    <!-- Topo Institucional -->
+    <div class="inst-banner">
+        <span><strong>UNISANTA</strong> | Universidade Santa Cecília</span>
+        <span>Extensão Curricular — Ano 2026</span>
+    </div>
+
+    <!-- Header Principal -->
+    <header>
+        <a href="#" class="logo-container" onclick="window.location.reload()">
+            <div class="logo-play"><i class="fas fa-play"></i></div>
+            <div class="logo-text">Uni<span>Start</span></div>
+        </a>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#trilhas">Trilhas</a></li>
+                <li><button class="btn-login" onclick="openAuthModal('login')">Entrar</button></li>
+                <li><button class="btn-cta" onclick="openAuthModal('register')">Criar Conta</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- LANDING PAGE (Visível Deslogado) -->
+    <div id="landing-page-content">
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <div class="hero-tag">Conectando Futuros</div>
+                <h1>Apoio na transição para o <span>Ensino Superior</span></h1>
+                <p>Centralizamos ferramentas, planejamentos e trilhas de capacitação para que a sua jornada acadêmica comece de forma estruturada, consciente e focada no sucesso profissional.</p>
+                <button class="btn-cta" onclick="openAuthModal('register')">Explorar Trilhas</button>
+            </div>
+            <div style="flex: 1; display: flex; justify-content: center;">
+                <svg width="260" height="260" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="80" fill="#f4effd" />
+                    <path d="M75 60 L145 100 L75 140 Z" fill="url(#grad)" />
+                    <defs>
+                        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:var(--purple-main)" />
+                            <stop offset="100%" style="stop-color:var(--turquoise)" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </section>
+
+        <section class="modules-section" id="trilhas">
+            <div class="section-header">
+                <h2>Nossas Trilhas de Aprendizagem</h2>
+                <p>Módulos estruturados para desenvolver as competências mais demandadas pelo ambiente universitário.</p>
+            </div>
+            <div class="grid-modules">
+                <div class="module-card" onclick="openAuthModal('login')">
+                    <div>
+                        <div class="module-icon"><i class="fas fa-university"></i></div>
+                        <h3>Vida Universitária</h3>
+                        <p>Apresentação do contexto do Ensino Superior, rotina acadêmica, adaptação e organização primária.</p>
+                    </div>
+                    <span class="module-link">Iniciar Trilha <i class="fas fa-arrow-right"></i></span>
+                </div>
+                <div class="module-card" onclick="openAuthModal('login')">
+                    <div>
+                        <div class="module-icon"><i class="fas fa-file-alt"></i></div>
+                        <h3>Currículo Profissional</h3>
+                        <p>Orientações práticas para a estruturação do primeiro currículo, organização de experiências e cursos.</p>
+                    </div>
+                    <span class="module-link">Iniciar Trilha <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- AREA INTERNA LOGADA (DASHBOARD - 6 MÓDULOS) -->
+    <main class="dashboard-section" id="dashboard-area">
+        <div class="welcome-box">
+            <h2>Olá, <span id="user-display-name">Estudante</span>! 👋</h2>
+            <p>Você está conectado à sua plataforma. Seus dados estão armazenados em conformidade com a LGPD e os princípios de privacidade.</p>
+        </div>
+        
+        <div class="section-header" style="text-align: left; margin-bottom: 30px;" id="internas-ancora">
+            <h2>Sua Jornada de Conhecimento</h2>
+            <p>Selecione um dos módulos abaixo para iniciar suas aulas digitais e acessar materiais:</p>
+        </div>
+        
+        <div class="grid-modules">
+            <!-- Módulo 1 (Redireciona para a página externa dedicada) -->
+            <div class="module-card" style="background: var(--white);" onclick="window.location.href='modulo1.html'">
+                <div><div class="module-icon" style="background-color: var(--turquoise-light); color: var(--turquoise-dark);"><i class="fas fa-play-circle"></i></div>
+                <h3>[Módulo 1] Vida Universitária</h3><p>Vídeos e materiais de apoio sobre as salas de aula, rotina e gerenciamento de rotina acadêmica.</p></div>
+                <span class="module-link" style="color: var(--turquoise-dark);">Assistir Aula <i class="fas fa-chevron-right"></i></span>
+            </div>
+            <!-- Módulo 2 -->
+            <div class="module-card" style="background: var(--white);">
+                <div><div class="module-icon" style="background-color: var(--turquoise-light); color: var(--turquoise-dark);"><i class="fas fa-play-circle"></i></div>
+                <h3>[Módulo 2] Currículo Profissional</h3><p>Templates para download e passo a passo completo para preencher o seu primeiro currículo profissional.</p></div>
+                <a href="#" class="module-link" style="color: var(--turquoise-dark);">Assistir Aula <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <!-- Módulo 3 -->
+            <div class="module-card" style="background: var(--white);">
+                <div><div class="module-icon" style="background-color: var(--turquoise-light); color: var(--turquoise-dark);"><i class="fas fa-play-circle"></i></div>
+                <h3>[Módulo 3] LinkedIn & Networking</h3><p>Estratégias de posicionamento digital, conexões profissionais e construção de marca pessoal no LinkedIn.</p></div>
+                <a href="#" class="module-link" style="color: var(--turquoise-dark);">Assistir Aula <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <!-- Módulo 4 -->
+            <div class="module-card" style="background: var(--white);">
+                <div><div class="module-icon" style="background-color: var(--turquoise-light); color: var(--turquoise-dark);"><i class="fas fa-play-circle"></i></div>
+                <h3>[Módulo 4] Portfólio Digital</h3><p>Como organizar e registrar seus certificados, projetos práticos e atividades complementares.</p></div>
+                <a href="#" class="module-link" style="color: var(--turquoise-dark);">Assistir Aula <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <!-- Módulo 5 -->
+            <div class="module-card" style="background: var(--white);">
+                <div><div class="module-icon" style="background-color: var(--turquoise-light); color: var(--turquoise-dark);"><i class="fas fa-play-circle"></i></div>
+                <h3>[Módulo 5] Organização Acadêmica</h3><p>Técnicas avançadas de gestão do tempo, metas, produtividade diária e planejamento semestral.</p></div>
+                <a href="#" class="module-link" style="color: var(--turquoise-dark);">Assistir Aula <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <!-- Módulo 6 -->
+            <div class="module-card" style="background: var(--white);">
+                <div><div class="module-icon" style="background-color: var(--turquoise-light); color: var(--turquoise-dark);"><i class="fas fa-play-circle"></i></div>
+                <h3>[Módulo 6] Oportunidades e Carreira</h3><p>Passo a passo para buscar estágios, programas de bolsas, eventos acadêmicos e iniciação científica.</p></div>
+                <a href="#" class="module-link" style="color: var(--turquoise-dark);">Assistir Aula <i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL DE AUTENTICAÇÃO MÚLTIPLO -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal-card">
+            <button class="close-modal" onclick="closeAuthModal()">&times;</button>
+            <div class="modal-tabs" id="modal-tabs-header">
+                <div class="modal-tab" id="tab-login" onclick="switchTab('login')">Entrar</div>
+                <div class="modal-tab" id="tab-register" onclick="switchTab('register')">Criar Conta</div>
+            </div>
+            
+            <!-- FORMULÁRIO DE LOGIN -->
+            <form id="loginForm" class="auth-form" onsubmit="handleLogin(event)">
+                <p style="margin-bottom: 20px; text-align: left; font-size: 0.9rem;">Acesse sua conta para continuar seus estudos.</p>
+                <div class="form-group"><label for="login-email">E-mail</label><input type="email" id="login-email" required placeholder="seuemail@exemplo.com"></div>
+                <div class="form-group"><label for="login-senha">Senha</label><input type="password" id="login-senha" required placeholder="Digite sua senha"></div>
+                <span class="toggle-form-link" style="text-align: right; margin-top: -5px; margin-bottom: 15px;" onclick="switchTab('forgot')">Esqueceu a senha?</span>
+                <button type="submit" class="btn-cta" style="width: 100%;">Entrar na Plataforma</button>
+                <div class="toggle-form-link" onclick="switchTab('register')">Não tem uma conta? Cadastre-se aqui</div>
+            </form>
+
+            <!-- FORMULÁRIO DE CADASTRO -->
+            <form id="cadastroForm" class="auth-form" onsubmit="handleCadastro(event)">
+                <p style="margin-bottom: 15px; text-align: left; font-size: 0.9rem;">Preencha os dados para liberar seu acesso exclusivo.</p>
+                <div class="form-group"><label for="nome">Nome Completo</label><input type="text" id="nome" required placeholder="Digite seu nome completo"></div>
+                <div class="form-group"><label for="cpf">CPF</label><input type="text" id="cpf" required placeholder="000.000.000-00" maxlength="14" oninput="mascaraCPF(this)"></div>
+                <div class="form-group"><label for="email">E-mail</label><input type="email" id="email" required placeholder="seuemail@exemplo.com"></div>
+                <div class="form-group"><label for="senha">Senha (mínimo 8 caracteres)</label><input type="password" id="senha" required minlength="8" placeholder="Crie uma senha forte"></div>
+                <div class="form-group" style="flex-direction: row; align-items: flex-start; gap: 10px; margin-top: 10px; margin-bottom: 15px;">
+                    <input type="checkbox" id="lgpd-consent" required style="width: 20px; height: 20px; cursor: pointer; margin-top: 2px;">
+                    <label for="lgpd-consent" style="font-size: 0.8rem; font-weight: 500; color: var(--gray-text); line-height: 1.4; cursor: pointer;">
+                        Li e aceito o <strong>Termo de Consentimento de Dados</strong>. Estou ciente de que meu Nome, CPF e E-mail serão tratados de forma segura e confidencial para fins acadêmicos e estatísticos deste projeto.
+                    </label>
+                </div>
+                <button type="submit" class="btn-cta" style="width: 100%;">Concluir Cadastro</button>
+                <div class="toggle-form-link" onclick="switchTab('login')">Já tem uma conta? Faça login aqui</div>
+            </form>
+
+            <!-- FORMULÁRIO ESQUECEU A SENHA -->
+            <form id="forgotForm" class="auth-form" onsubmit="handleForgotPassword(event)">
+                <h3 style="margin-bottom: 10px;">Recuperar Senha</h3>
+                <p style="margin-bottom: 20px; text-align: left; font-size: 0.9rem;">Confirme seu E-mail e o CPF cadastrados para receber um código de validação.</p>
+                <div class="form-group"><label for="forgot-email">E-mail Cadastrado</label><input type="email" id="forgot-email" required placeholder="seuemail@exemplo.com"></div>
+                <div class="form-group"><label for="forgot-cpf">CPF Cadastrado</label><input type="text" id="forgot-cpf" required placeholder="000.000.000-00" maxlength="14" oninput="mascaraCPF(this)"></div>
+                <button type="submit" class="btn-cta" style="width: 100%; margin-top: 10px;">Enviar Código de Acesso</button>
+                <div class="toggle-form-link" onclick="switchTab('login')">Voltar para o Login</div>
+            </form>
+
+            <!-- FORMULÁRIO DE RE-DEFINIÇÃO DE SENHA -->
+            <form id="resetPasswordForm" class="auth-form" onsubmit="handleResetPassword(event)">
+                <h3 style="margin-bottom: 10px;">Criar Nova Senha</h3>
+                <p style="margin-bottom: 20px; text-align: left; font-size: 0.9rem;">Insira o código enviado no seu e-mail de verdade e escolha sua nova credencial.</p>
+                <div class="form-group"><label for="reset-code">Código Verificador de 6 Dígitos</label><input type="text" id="reset-code" required maxlength="6" style="text-align: center; letter-spacing: 4px; font-weight: bold;" placeholder="000000"></div>
+                <div class="form-group"><label for="reset-senha">Nova Senha (mínimo 8 caracteres)</label><input type="password" id="reset-senha" required minlength="8" placeholder="Digite sua nova senha"></div>
+                <button type="submit" class="btn-cta" style="width: 100%; margin-top: 10px;">Atualizar e Logar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DE PERFIL/INFORMAÇÕES PESSOAIS DO ALUNO -->
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal-card" style="max-width: 420px; text-align: center;">
+            <button class="close-modal" onclick="closeProfileModal()">&times;</button>
+            <h2 style="margin-bottom: 15px;">Informações Pessoais</h2>
+            <p style="font-size: 0.85rem; color: var(--gray-text); margin-bottom: 20px;">Tratamento seguro e transparente dos seus dados (LGPD).</p>
+            
+            <div class="profile-avatar-box"><i class="fas fa-user-graduate"></i></div>
+            
+            <div class="profile-info-grid">
+                <div class="profile-info-item"><span>Nome Completo</span><strong id="prof-nome">Carregando...</strong></div>
+                <div class="profile-info-item"><span>CPF</span><strong id="prof-cpf">000.000.000-00</strong></div>
+                <div class="profile-info-item"><span>E-mail Informado</span><strong id="prof-email">carregando@exemplo.com</strong></div>
+                <div class="profile-info-item"><span>Tipo de Trilha Ativa</span><strong style="color: var(--purple-main); font-weight: 700;"><i class="fas fa-route" style="margin-right: 5px;"></i> Geral — Transição Universitária</strong></div>
+            </div>
+            
+            <button class="btn-logout" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Encerrar Sessão</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h4>UniStart</h4>
+                <p>Projeto de Extensão Curricular focado em mitigar a evasão universitária através da tecnologia e informação estruturada.</p>
+            </div>
+            <div class="footer-team">
+                <h4>Desenvolvedores (Ciência de Dados)</h4>
+                <ul>
+                    <li>Bruna dos Santos Sanches</li>
+                    <li>João Vitor Andrade de Oliveira</li>
+                    <li>Laysa Cristina Luz Calixto Jaques</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Universidade Santa Cecília (UNISANTA). Todos os direitos reservados.</div>
+    </footer>
+
+    <!-- LOGICA JAVASCRIPT EXCLUSIVA -->
+    <script>
+        // ATUALIZADO COM SEU NOVO MOTOR DO GOOGLE APPS SCRIPT DO PROJETO
+        const LINK_DO_MOTOR_GOOGLE = "https://script.google.com/macros/s/AKfycbzNOhIvaJgLKFyE94VeR-Sttm6nHx1hTlM5_dmY3o8ER0puXdj99RRPNisKDNREM8mY/exec";
+
+        let tokenGerado = "";
+
+        window.onload = function() {
+            const usuarioLogado = localStorage.getItem('unistart_sessao_ativa');
+            if (usuarioLogado) {
+                const dados = JSON.parse(usuarioLogado);
+                entrarNoDashboard(dados.nome);
+            }
+        };
+
+        function openAuthModal(mode) {
+            document.getElementById('authModal').classList.add('active');
+            switchTab(mode);
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+        }
+
+        function openProfileModal() {
+            const bancoLocal = localStorage.getItem('cadastro_unistart');
+            if (bancoLocal) {
+                const conta = JSON.parse(bancoLocal);
+                document.getElementById('prof-nome').innerText = conta.nome;
+                document.getElementById('prof-cpf').innerText = conta.cpf;
+                document.getElementById('prof-email').innerText = conta.email;
+            }
+            document.getElementById('profileModal').classList.add('active');
+        }
+
+        function closeProfileModal() { document.getElementById('profileModal').classList.remove('active'); }
+
+        function switchTab(mode) {
+            document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+            document.getElementById('modal-tabs-header').style.display = 'flex';
+            
+            if (mode === 'login') {
+                document.getElementById('tab-login').classList.add('active');
+                document.getElementById('loginForm').classList.add('active');
+            } else if (mode === 'register') {
+                document.getElementById('tab-register').classList.add('active');
+                document.getElementById('cadastroForm').classList.add('active');
+            } else if (mode === 'forgot') {
+                document.getElementById('modal-tabs-header').style.display = 'none';
+                document.getElementById('forgotForm').classList.add('active');
+            } else if (mode === 'reset') {
+                document.getElementById('modal-tabs-header').style.display = 'none';
+                document.getElementById('resetPasswordForm').classList.add('active');
+            }
+        }
+
+        function mascaraCPF(input) {
+            let v = input.value.replace(/\D/g, "");
+            v = v.replace(/(\d{3})(\d)/, "$1.$2");
+            v = v.replace(/(\d{3})(\d)/, "$1.$2");
+            v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+            input.value = v;
+        }
+
+        function entrarNoDashboard(nomeCompleto) {
+            document.getElementById('landing-page-content').style.display = 'none';
+            document.getElementById('dashboard-area').style.display = 'block';
+            document.getElementById('user-display-name').innerText = nomeCompleto.split(' ')[0];
+            
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.innerHTML = `
+                <li><a href="#internas-ancora" style="color: var(--purple-main); font-weight: 700;">Minhas Trilhas</a></li>
+                <li>
+                    <div class="user-nav-profile" onclick="openProfileModal()">
+                        <i class="fas fa-user-circle" style="font-size: 1.3rem; color: var(--purple-main);"></i>
+                        <span>Olá, ${nomeCompleto.split(' ')[0]}</span>
+                    </div>
+                </li>
+            `;
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const emailIn = document.getElementById('login-email').value;
+            const senhaIn = document.getElementById('login-senha').value;
+            const bancoLocal = localStorage.getItem('cadastro_unistart');
+
+            if (!bancoLocal) {
+                alert('Nenhum usuário cadastrado neste navegador. Clique em "Criar Conta"!');
+                return;
+            }
+
+            const contaExistente = JSON.parse(bancoLocal);
+
+            if (contaExistente.email === emailIn && contaExistente.senha === senhaIn) {
+                localStorage.setItem('unistart_sessao_ativa', JSON.stringify(contaExistente));
+                closeAuthModal();
+                entrarNoDashboard(contaExistente.nome);
+            } else {
+                alert('E-mail ou senha incorretos.');
+            }
+        }
+
+        function handleCadastro(event) {
+            event.preventDefault();
+            const nomeInput = document.getElementById('nome').value;
+            const cpfInput = document.getElementById('cpf').value;
+            const emailInput = document.getElementById('email').value;
+            const senhaInput = document.getElementById('senha').value;
+
+            alert('Processando sua inscrição em conformidade com a LGPD... Aguarde.');
+
+            const novoAluno = { nome: nomeInput, cpf: cpfInput, email: emailInput, senha: senhaInput };
+            localStorage.setItem('cadastro_unistart', JSON.stringify(novoAluno));
+            localStorage.setItem('unistart_sessao_ativa', JSON.stringify(novoAluno));
+
+            fetch(LINK_DO_MOTOR_GOOGLE, {
+                method: "POST",
+                mode: "no-cors", 
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    fluxo: "welcome",
+                    nome: nomeInput,
+                    cpf: cpfInput,
+                    email: emailInput
+                })
+            })
+            .then(() => {
+                closeAuthModal();
+                alert('Inscrição confirmada! Seu e-mail de boas-vindas foi despachado.');
+                entrarNoDashboard(nomeInput);
+            })
+            .catch(err => {
+                console.log(err);
+                closeAuthModal();
+                entrarNoDashboard(nomeInput);
+            });
+        }
+
+        function handleForgotPassword(event) {
+            event.preventDefault();
+            const emailIn = document.getElementById('forgot-email').value;
+            const cpfIn = document.getElementById('forgot-cpf').value;
+            const bancoLocal = localStorage.getItem('cadastro_unistart');
+
+            if (!bancoLocal) {
+                alert('Nenhum registro encontrado neste navegador.');
+                return;
+            }
+
+            const conta = JSON.parse(bancoLocal);
+
+            if (conta.email === emailIn && conta.cpf === cpfIn) {
+                tokenGerado = Math.floor(100000 + Math.random() * 900000).toString();
+                
+                alert('Gerando token de segurança... Confira sua caixa de entrada.');
+
+                fetch(LINK_DO_MOTOR_GOOGLE, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        fluxo: "recovery",
+                        email: emailIn,
+                        codigo: tokenGerado
+                    })
+                })
+                .then(() => {
+                    alert('Código enviado! Acesse o seu e-mail de verdade para pegá-lo.');
+                    switchTab('reset'); 
+                })
+                .catch(err => {
+                    console.log(err);
+                    alert('Ocorreu um desvio de rede, mas seu token para teste rápido é: ' + tokenGerado);
+                    switchTab('reset');
+                });
+            } else {
+                alert('Os dados de E-mail e CPF informados não coincidem.');
+            }
+        }
+
+        function handleResetPassword(event) {
+            event.preventDefault();
+            const codigoIn = document.getElementById('reset-code').value;
+            const novaSenhaIn = document.getElementById('reset-senha').value;
+
+            if (codigoIn !== tokenGerado) {
+                alert('Código inválido. Digite exatamente os 6 dígitos recebidos no e-mail.');
+                return;
+            }
+
+            if (novaSenhaIn.length < 8) {
+                alert('A nova senha de acesso deve conter pelo menos 8 dígitos.');
+                return;
+            }
+
+            const contaOriginal = JSON.parse(localStorage.getItem('cadastro_unistart'));
+            contaOriginal.senha = novaSenhaIn;
+            localStorage.setItem('cadastro_unistart', JSON.stringify(contaOriginal));
+
+            alert('Senha updated! Acesse usando suas novas credenciais.');
+            openAuthModal('login');
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('unistart_sessao_ativa');
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>
