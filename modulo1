@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1 - UniStart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --purple-main: #6f42c1;
+            --purple-dark: #5a32a3;
+            --purple-light: #f4effd;
+            --turquoise: #00ced1;
+            --turquoise-dark: #00b5b8;
+            --turquoise-light: #e6fafa;
+            --black-text: #121212;
+            --gray-text: #4a4a4a;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--black-text); background-color: var(--bg-light); line-height: 1.6; }
+
+        .inst-banner { background-color: var(--black-text); color: var(--white); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; padding: 8px 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--turquoise); }
+        .inst-banner span strong { color: var(--turquoise); }
+
+        header { background-color: var(--white); padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-play { background: linear-gradient(135deg, var(--purple-main), var(--turquoise)); color: var(--white); width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; padding-left: 4px; }
+        .logo-text { font-size: 1.6rem; font-weight: 700; color: var(--black-text); letter-spacing: -0.5px; }
+        .logo-text span { color: var(--purple-main); }
+
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+        nav ul li a { text-decoration: none; color: var(--black-text); font-weight: 600; font-size: 0.95rem; }
+
+        .user-nav-profile { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--black-text); padding: 6px 14px; border-radius: 30px; background-color: var(--bg-light); border: 1px solid rgba(0,0,0,0.05); }
+
+        /* Estrutura da Página de Conteúdo */
+        .content-container { padding: 40px 10%; max-width: 1200px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--purple-main); font-weight: 600; margin-bottom: 20px; transition: var(--transition); }
+        .back-link:hover { color: var(--purple-dark); transform: translateX(-3px); }
+
+        /* Container Responsivo para o Player do YouTube */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            margin-bottom: 35px;
+            background-color: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .info-layout { display: flex; gap: 40px; flex-wrap: wrap; text-align: left; }
+        .main-text { flex: 2; min-width: 300px; }
+        .side-card { flex: 1; min-width: 260px; background-color: var(--white); padding: 30px; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.02); height: fit-content; text-align: center; }
+
+        .btn-cta { background-color: var(--purple-main); color: var(--white); padding: 12px 24px; border-radius: 30px; border: none; cursor: pointer; font-weight: 600; width: 100%; transition: var(--transition); display: inline-flex; justify-content: center; align-items: center; gap: 10px; font-family: 'Inter', sans-serif; text-decoration: none;}
+        .btn-cta:hover { background-color: var(--purple-dark); transform: translateY(-2px); }
+
+        footer { background-color: var(--black-text); color: var(--white); padding: 40px 10% 20px 10%; margin-top: 60px; }
+        .footer-bottom { text-align: center; font-size: 0.8rem; color: #777777; padding-top: 20px; border-top: 1px solid #2d2d2d; }
+    </style>
+</head>
+<body>
+
+    <!-- Topo Institucional -->
+    <div class="inst-banner">
+        <span><strong>UNISANTA</strong> | Universidade Santa Cecília</span>
+        <span>Extensão Curricular — Ano 2026</span>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo-container">
+            <div class="logo-play"><i class="fas fa-play"></i></div>
+            <div class="logo-text">Uni<span>Start</span></div>
+        </a>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html" style="color: var(--gray-text); text-decoration: none;">Voltar para as Trilhas</a></li>
+                <li>
+                    <div class="user-nav-profile">
+                        <i class="fas fa-user-circle" style="font-size: 1.3rem; color: var(--purple-main);"></i>
+                        <span id="nav-user-name">Estudante</span>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Corpo da Página -->
+    <main class="content-container">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar ao Painel</a>
+        
+        <span style="color: var(--purple-main); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px;">Módulo 1 // Primeiros Passos</span>
+        <h1 style="font-size: 2.2rem; margin-bottom: 25px;">De Perdido a Calouro: O Guia de Sobrevivência</h1>
+
+        <!-- Player de Vídeo Real do YouTube -->
+        <div class="video-container">
+            <!-- NOTA: Substitua o ID 'dQw4w9WgXcQ' abaixo pelo ID do vídeo não listado do grupo quando gravarem -->
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="UniStart Aula 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        <!-- Informações e Material -->
+        <div class="info-layout">
+            <div class="main-text">
+                <h3 style="margin-bottom: 12px; font-size: 1.4rem;"><i class="fas fa-compass" style="color: var(--purple-main); margin-right: 8px;"></i> O que você vai aprender para não surtar:</h3>
+                <p style="font-size: 1rem; color: var(--gray-text); margin-bottom: 25px; line-height: 1.7;">Mudar de ambiente dá medo e estar confuso é completamente normal. Aqui, nós decodificamos o "Universitês" para você entender de primeira o que são DPs, provas substitutivas (Sub), créditos acadêmicos e matérias eletivas. Vamos te ensinar a gerenciar sua nova liberdade e criar uma rotina de estudos própria, já que na faculdade nenhum professor vai ficar te cobrando caderno ou lição de casa.</p>
+                
+                <h3 style="margin-bottom: 15px; font-size: 1.4rem;"><i class="fas fa-map-marker-alt" style="color: var(--purple-main); margin-right: 8px;"></i> Checklist Antipânico dos Primeiros Dias:</h3>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; color: var(--gray-text); font-size: 0.95rem;">
+                    <li style="display: flex; align-items: center; gap: 10px;"><input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--purple-main);"> Mapear onde ficam as suas salas, laboratórios, secretaria e a biblioteca.</li>
+                    <li style="display: flex; align-items: center; gap: 10px;"><input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--purple-main);"> Descobrir quem é o Centro Acadêmico (CA) do seu curso — eles têm os melhores macetes e resumos.</li>
+                    <li style="display: flex; align-items: center; gap: 10px;"><input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--purple-main);"> Baixar o plano de ensino das matérias do semestre para entender os critérios de notas.</li>
+                </ul>
+            </div>
+
+            <!-- Caixa de Downloads Lateral -->
+            <div class="side-card">
+                <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--purple-main); margin-bottom: 15px; display: block;"></i>
+                <h4 style="margin-bottom: 8px; font-size: 1.2rem;">Kit de Sobrevivência</h4>
+                <p style="font-size: 0.85rem; color: var(--gray-text); margin-bottom: 20px;">Contém o dicionário de termos universitários e um planner semanal focado em organização autônoma.</p>
+                <button class="btn-cta" onclick="alert('Download do Kit de Transição Concluído!')"><i class="fas fa-download"></i> Baixar Kit PDF</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-bottom">&copy; 2026 Universidade Santa Cecília (UNISANTA). Todos os direitos reservados.</div>
+    </footer>
+
+    <!-- LÓGICA INTELIGENTE DE SESSÃO -->
+    <script>
+        window.onload = function() {
+            const usuarioLogado = localStorage.getItem('unistart_sessao_ativa');
+            if (!usuarioLogado) {
+                window.location.href = 'index.html';
+            } else {
+                const dados = JSON.parse(usuarioLogado);
+                document.getElementById('nav-user-name').innerText = "Olá, " + dados.nome.split(' ')[0];
+            }
+        };
+    </script>
+</body>
+</html>
