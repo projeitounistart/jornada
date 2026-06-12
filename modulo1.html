@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 1 - UniStart</title>
+    <title>Módulo 1 - Vida Universitária // UniStart</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -26,9 +26,11 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; color: var(--black-text); background-color: var(--bg-light); line-height: 1.6; }
 
+        /* Topo Institucional */
         .inst-banner { background-color: var(--black-text); color: var(--white); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; padding: 8px 10%; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--turquoise); }
         .inst-banner span strong { color: var(--turquoise); }
 
+        /* Header */
         header { background-color: var(--white); padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; }
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo-play { background: linear-gradient(135deg, var(--purple-main), var(--turquoise)); color: var(--white); width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; padding-left: 4px; }
@@ -37,40 +39,42 @@
 
         nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
         nav ul li a { text-decoration: none; color: var(--black-text); font-weight: 600; font-size: 0.95rem; }
-
         .user-nav-profile { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--black-text); padding: 6px 14px; border-radius: 30px; background-color: var(--bg-light); border: 1px solid rgba(0,0,0,0.05); }
 
-        /* Estrutura da Página de Conteúdo */
+        /* Container de Conteúdo */
         .content-container { padding: 40px 10%; max-width: 1200px; margin: 0 auto; }
         .back-link { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--purple-main); font-weight: 600; margin-bottom: 20px; transition: var(--transition); }
         .back-link:hover { color: var(--purple-dark); transform: translateX(-3px); }
 
-        /* Container Responsivo para o Player do YouTube */
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* Proporção 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            margin-bottom: 35px;
-            background-color: #000;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+        /* Banner de Título */
+        .module-header-box { margin-bottom: 35px; }
+        .tag-sub { color: var(--purple-main); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px; }
+        
+        /* Player de Vídeo */
+        .video-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; box-shadow: var(--shadow); margin-bottom: 45px; background-color: #000; border: 4px solid var(--white); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        .info-layout { display: flex; gap: 40px; flex-wrap: wrap; text-align: left; }
-        .main-text { flex: 2; min-width: 300px; }
-        .side-card { flex: 1; min-width: 260px; background-color: var(--white); padding: 30px; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.02); height: fit-content; text-align: center; }
+        /* Layout de Artigo */
+        .article-layout { display: flex; flex-direction: column; gap: 30px; max-width: 900px; margin: 0 auto; }
+        
+        /* Seções de Texto */
+        .text-card { background-color: var(--white); padding: 40px; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.02); text-align: left; }
+        .text-card h2 { font-size: 1.6rem; color: var(--black-text); margin-bottom: 18px; display: flex; align-items: center; gap: 12px; }
+        .text-card h2 i { color: var(--purple-main); background-color: var(--purple-light); width: 40px; height: 40px; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; }
+        .text-card p { font-size: 1.05rem; color: var(--gray-text); line-height: 1.75; margin-bottom: 15px; }
+        .text-card p:last-child { margin-bottom: 0; }
+        .text-card strong { color: var(--black-text); font-weight: 600; }
 
-        .btn-cta { background-color: var(--purple-main); color: var(--white); padding: 12px 24px; border-radius: 30px; border: none; cursor: pointer; font-weight: 600; width: 100%; transition: var(--transition); display: inline-flex; justify-content: center; align-items: center; gap: 10px; font-family: 'Inter', sans-serif; text-decoration: none;}
-        .btn-cta:hover { background-color: var(--purple-dark); transform: translateY(-2px); }
+        /* Destaques Especiais (Frases de Impacto) */
+        .highlight-quote { background: linear-gradient(to right, var(--purple-light), var(--turquoise-light)); padding: 25px 30px; border-left: 5px solid var(--purple-main); border-radius: 0 14px 14px 0; margin: 20px 0; font-style: italic; font-size: 1.1rem; font-weight: 600; color: var(--purple-dark); }
+
+        /* Seção das 7 Coisas (Grid de Cards Modernos) */
+        .seven-things-section { margin-top: 50px; text-align: center; }
+        .seven-things-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
+        .thing-card { background-color: var(--white); padding: 30px; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.03); text-align: left; position: relative; overflow: hidden; transition: var(--transition); }
+        .thing-card:hover { transform: translateY(-5px); border-color: var(--turquoise); }
+        .thing-number { position: absolute; top: -10px; right: 10px; font-size: 4.5rem; font-weight: 800; color: rgba(111, 66, 193, 0.06); font-family: sans-serif; }
+        .thing-card h4 { font-size: 1.2rem; margin-bottom: 12px; color: var(--purple-main); display: flex; align-items: center; gap: 8px; }
 
         footer { background-color: var(--black-text); color: var(--white); padding: 40px 10% 20px 10%; margin-top: 60px; }
         .footer-bottom { text-align: center; font-size: 0.8rem; color: #777777; padding-top: 20px; border-top: 1px solid #2d2d2d; }
@@ -103,40 +107,163 @@
         </nav>
     </header>
 
-    <!-- Corpo da Página -->
+    <!-- Corpo da Página de Leitura -->
     <main class="content-container">
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar ao Painel</a>
         
-        <span style="color: var(--purple-main); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px;">Módulo 1 // Primeiros Passos</span>
-        <h1 style="font-size: 2.2rem; margin-bottom: 25px;">De Perdido a Calouro: O Guia de Sobrevivência</h1>
+        <div class="module-header-box">
+            <span class="tag-sub">Módulo 1 // Vida Universitária</span>
+            <h1 style="font-size: 2.3rem; font-weight: 700; line-height: 1.2;">O que ninguém te conta sobre começar a faculdade</h1>
+        </div>
 
-        <!-- Player de Vídeo Real do YouTube -->
+        <!-- Player de Vídeo Não Listado do YouTube -->
         <div class="video-container">
-            <!-- NOTA: Substitua o ID 'dQw4w9WgXcQ' abaixo pelo ID do vídeo não listado do grupo quando gravarem -->
+            <!-- Quando gravarem o vídeo real, basta trocar o ID 'dQw4w9WgXcQ' pelo ID de vocês -->
             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="UniStart Aula 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
-        <!-- Informações e Material -->
-        <div class="info-layout">
-            <div class="main-text">
-                <h3 style="margin-bottom: 12px; font-size: 1.4rem;"><i class="fas fa-compass" style="color: var(--purple-main); margin-right: 8px;"></i> O que você vai aprender para não surtar:</h3>
-                <p style="font-size: 1rem; color: var(--gray-text); margin-bottom: 25px; line-height: 1.7;">Mudar de ambiente dá medo e estar confuso é completamente normal. Aqui, nós decodificamos o "Universitês" para você entender de primeira o que são DPs, provas substitutivas (Sub), créditos acadêmicos e matérias eletivas. Vamos te ensinar a gerenciar sua nova liberdade e criar uma rotina de estudos própria, já que na faculdade nenhum professor vai ficar te cobrando caderno ou lição de casa.</p>
+        <!-- Fluxo de Leitura Estruturado -->
+        <div class="article-layout">
+            
+            <!-- Bloco 1 -->
+            <div class="text-card">
+                <h2><i class="fas fa-hourglass-start"></i> O momento em que tudo muda</h2>
+                <p>Existe um momento curioso na vida de quase todo estudante. Ele acontece depois da última prova do Ensino Médio, depois da formatura, depois das fotos com os amigos e dos abraços da família.</p>
+                <p>Durante anos, você ouviu que precisava estudar para chegar até aqui. Professores falavam sobre vestibular, familiares perguntavam qual curso você escolheria e, aos poucos, a faculdade foi se tornando uma espécie de destino final. Parecia que, quando esse momento chegasse, todas as dúvidas desapareceriam e a vida finalmente faria sentido.</p>
                 
-                <h3 style="margin-bottom: 15px; font-size: 1.4rem;"><i class="fas fa-map-marker-alt" style="color: var(--purple-main); margin-right: 8px;"></i> Checklist Antipânico dos Primeiros Dias:</h3>
-                <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; color: var(--gray-text); font-size: 0.95rem;">
-                    <li style="display: flex; align-items: center; gap: 10px;"><input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--purple-main);"> Mapear onde ficam as suas salas, laboratórios, secretaria e a biblioteca.</li>
-                    <li style="display: flex; align-items: center; gap: 10px;"><input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--purple-main);"> Descobrir quem é o Centro Acadêmico (CA) do seu curso — eles têm os melhores macetes e resumos.</li>
-                    <li style="display: flex; align-items: center; gap: 10px;"><input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--purple-main);"> Baixar o plano de ensino das matérias do semestre para entender os critérios de notas.</li>
-                </ul>
+                <div class="highlight-quote">
+                    "Mas então você chega. E descobre que não era uma linha de chegada. Era apenas o começo."
+                </div>
+                
+                <p>A transição entre o Ensino Médio e a universidade é uma das maiores mudanças que muitos jovens experimentam. É um período marcado por expectativas, sonhos, inseguranças e descobertas. De repente, você se vê diante de novas responsabilidades, novos ambientes, novas pessoas e decisões que parecem importantes demais para alguém que acabou de deixar a adolescência para trás.</p>
+                <p>Se você está sentindo um misto de empolgação e medo, saiba que <strong>isso é completamente normal</strong>. Na verdade, provavelmente você está sentindo exatamente o que milhares de universitários sentiram antes de você.</p>
             </div>
 
-            <!-- Caixa de Downloads Lateral -->
-            <div class="side-card">
-                <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--purple-main); margin-bottom: 15px; display: block;"></i>
-                <h4 style="margin-bottom: 8px; font-size: 1.2rem;">Kit de Sobrevivência</h4>
-                <p style="font-size: 0.85rem; color: var(--gray-text); margin-bottom: 20px;">Contém o dicionário de termos universitários e um planner semanal focado em organização autônoma.</p>
-                <button class="btn-cta" onclick="alert('Download do Kit de Transição Concluído!')"><i class="fas fa-download"></i> Baixar Kit PDF</button>
+            <!-- Bloco 2 -->
+            <div class="text-card">
+                <h2><i class="fas fa-exchange-alt"></i> A maior diferença entre a escola e a universidade</h2>
+                <p>Uma das primeiras coisas que ninguém costuma explicar é que a faculdade funciona de maneira muito diferente da escola. Durante grande parte da vida, existia sempre alguém acompanhando seus passos. Havia professores cobrando atividades, coordenadores organizando a rotina e responsáveis ajudando a lembrar compromissos importantes.</p>
+                <p>Na universidade, grande parte dessa responsabilidade passa a ser sua. Não porque as pessoas deixaram de se importar, mas porque agora o objetivo é que você **desenvolva autonomia**.</p>
+                <p>Isso significa que ninguém irá lembrar você sobre todas as datas de entrega, ninguém acompanhará diariamente seus estudos e ninguém organizará sua agenda. Pode parecer assustador no início, mas também é uma oportunidade extraordinária de crescimento. Pela primeira vez, você terá a chance de aprender a administrar seu próprio tempo, tomar decisões importantes e construir hábitos que poderão acompanhá-lo pelo resto da vida.</p>
             </div>
+
+            <!-- Bloco 3 -->
+            <div class="text-card">
+                <h2><i class="fas fa-calendar-alt"></i> Você não precisa ter a vida planejada aos 18 anos</h2>
+                <p>Existe uma pressão enorme para que jovens recém-saídos da escola saibam exatamente quem desejam ser pelos próximos quarenta anos. Muitas pessoas entram na faculdade acreditando que precisam ter um plano de carreira perfeito, metas definidas e respostas para todas as perguntas. A realidade é muito diferente.</p>
+                <p>Pouquíssimos adultos têm certeza absoluta sobre o futuro, e isso não muda magicamente quando alguém entra na universidade. A faculdade não é um lugar onde você encontra todas as respostas. <strong>É um lugar onde você aprende a fazer perguntas melhores.</strong></p>
+                <p>Você pode descobrir novos interesses, mudar de opinião, mudar de área ou encontrar oportunidades que nunca imaginou. Crescer significa permitir-se explorar possibilidades. Por isso, não se cobre tanto. Você não precisa enxergar o caminho inteiro. Precisa apenas dar o próximo passo.</p>
+            </div>
+
+            <!-- Bloco 4 -->
+            <div class="text-card">
+                <h2><i class="fas fa-user-shield"></i> O sentimento de não pertencer</h2>
+                <p>Em algum momento dos primeiros meses, existe uma grande chance de você olhar para os colegas e pensar que todos parecem mais preparados do que você. Alguns falam com confiança sobre o futuro, outros parecem compreender tudo rapidamente e alguns demonstram uma segurança impressionante.</p>
+                <p>O que quase ninguém percebe é que muitas dessas pessoas estão enfrentando exatamente as mesmas dúvidas. Existe um sentimento muito comum entre universitários chamado <strong>Síndrome do Impostor</strong>. Ele faz com que pessoas competentes acreditem que não são boas o suficiente para estar onde estão.</p>
+                <p>Se você já pensou que entrou na faculdade por sorte, que não é inteligente o bastante ou que será "descoberto" a qualquer momento, saiba que não está sozinho. Esses pensamentos são mais comuns do que parecem. A verdade é simples: você conquistou sua vaga. Você estudou, se esforçou e chegou até aqui. Sua presença na universidade não é um acidente. <strong>Você pertence a esse lugar.</strong></p>
+            </div>
+
+            <!-- Bloco 5 -->
+            <div class="text-card">
+                <h2><i class="fas fa-shield-alt"></i> Aprendendo a sobreviver ao primeiro semestre</h2>
+                <p>O primeiro semestre costuma ser uma mistura de entusiasmo e caos. Tudo é novo. Novos professores, novos conteúdos, novas regras e novas responsabilidades. Por isso, uma das habilidades mais importantes que você pode desenvolver é a <strong>organização</strong>.</p>
+                <p>Muitos estudantes acreditam que estudar significa passar horas seguidas diante dos livros. Na prática, a organização costuma ser mais importante do que a quantidade de horas estudadas. Criar uma agenda, anotar datas importantes, dividir grandes tarefas em pequenas etapas e revisar conteúdos regularmente pode evitar grande parte do estresse que costuma surgir próximo às provas.</p>
+                <p>Outro ponto importante é entender que a faculdade é uma maratona, não uma corrida de cem metros. Você não precisa aprender tudo em uma semana, participar de todas as atividades e aproveitar todas as oportunidades imediatamente. O segredo está na constância. Pequenos avanços diários produzem resultados muito maiores do que períodos intensos de estudo seguidos por exaustão.</p>
+            </div>
+
+            <!-- Bloco 6 -->
+            <div class="text-card">
+                <h2><i class="fas fa-globe"></i> A faculdade acontece muito além da sala de aula</h2>
+                <p>Uma das maiores descobertas da vida universitária é perceber que as aulas representam apenas uma parte da experiência. Existe um universo inteiro de oportunidades acontecendo fora da sala de aula.</p>
+                <p>Ao longo da graduação você poderá participar de palestras, eventos acadêmicos, workshops, projetos de extensão, monitorias, pesquisas, programas de voluntariado e diversas outras atividades que contribuirão para sua formação. Muitas vezes, são justamente essas experiências que ajudam o estudante a descobrir seus interesses, desenvolver novas habilidades e construir um diferencial profissional.</p>
+                <p>A universidade não é apenas um lugar para assistir aulas. É um ambiente de crescimento, aprendizado e descobertas. Quanto mais você se permitir explorar esse universo, mais rica será sua experiência.</p>
+            </div>
+
+            <!-- Bloco 7 -->
+            <div class="text-card">
+                <h2><i class="fas fa-users"></i> As pessoas que vão caminhar com você</h2>
+                <p>Quando pensamos na faculdade, geralmente imaginamos livros, provas e trabalhos. Mas uma das maiores riquezas dessa jornada são as pessoas que encontramos pelo caminho.</p>
+                <p>Alguns colegas se tornaram parceiros de estudo. Outros se transformaram em grandes amigos. Haverá professores que marcarão sua trajetória e pessoas que inspirarão mudanças importantes na forma como você enxerga o mundo.</p>
+                <p>Muitas oportunidades surgem através de conexões humanas. Uma conversa durante um intervalo pode apresentar um projeto interessante. Um colega pode indicar um estágio. Um professor pode incentivar uma habilidade que você ainda nem percebeu possuir. Por isso, não tenha medo de se aproximar das pessoas. Você não precisa ser extrovertido ou popular. Basta estar aberto para construir relações genuínas.</p>
+            </div>
+
+            <!-- Bloco 8 -->
+            <div class="text-card">
+                <h2><i class="fas fa-briefcase"></i> Construindo sua vida profissional desde o primeiro dia</h2>
+                <p>Embora a formatura pareça distante, sua trajetória profissional começa muito antes dela. Cada curso realizado, cada atividade desenvolvida e cada experiência vivida contribui para a construção do profissional que você está se tornando.</p>
+                <p>Muitos estudantes deixam para pensar em currículo, LinkedIn e carreira apenas nos últimos semestres. No entanto, começar cedo permite aproveitar melhor as oportunidades disponíveis ao longo da graduação. Participar de eventos, registrar projetos, realizar cursos complementares e desenvolver novas habilidades são atitudes que fazem diferença no longo prazo.</p>
+                <p>Mais importante do que acumular certificados é desenvolver uma mentalidade de **aprendizado contínuo**. O mercado muda constantemente, e uma das competências mais valiosas da atualidade é a capacidade de continuar aprendendo.</p>
+            </div>
+
+            <!-- Bloco 9 -->
+            <div class="text-card">
+                <h2><i class="fas fa-brain"></i> Cuidando da sua saúde mental durante a graduação</h2>
+                <p>Existe uma cultura que romantiza o cansaço extremo. Algumas pessoas acreditam que dormir pouco, viver estressado e estar sempre sobrecarregado são sinais de dedicação. Não são.</p>
+                <p>Aprender exige equilíbrio. Seu cérebro precisa de descanso para processar informações. Seu corpo precisa de energia para enfrentar os desafios diários. Sua saúde mental merece a mesma atenção que seus estudos.</p>
+                <p>Ao longo da faculdade, reserve tempo para descansar, estar com pessoas importantes, praticar atividades que lhe fazem bem e cuidar de si mesmo. O sucesso acadêmico não deve acontecer às custas da sua saúde.</p>
+            </div>
+
+            <!-- Bloco 10 -->
+            <div class="text-card" style="border-left: 5px solid var(--turquoise);">
+                <h2><i class="fas fa-comments"></i> Uma última conversa antes de continuar</h2>
+                <p>Se você chegou até aqui, quero que se lembre de algo importante: <strong>ninguém começa pronto.</strong></p>
+                <p>Você não precisa ter todas as respostas. Não precisa conhecer todos os caminhos. Não precisa saber exatamente quem será daqui a dez anos.</p>
+                <p>A universidade não é um teste para descobrir quem merece ter sucesso. Ela é uma oportunidade para aprender, crescer, errar, recomeçar e construir sua própria trajetória. Permita-se viver essa experiência com curiosidade. Faça perguntas. Explore oportunidades. Conheça pessoas. Descubra novos interesses. E, principalmente, tenha paciência consigo mesmo.</p>
+                <p>Você está começando uma nova fase da vida. E isso, por si só, já é uma conquista.</p>
+            </div>
+
+            <!-- SEÇÃO DE CARDS MODERNOS: 7 COISAS -->
+            <div class="seven-things-section">
+                <h2 style="font-size: 1.8rem; margin-bottom: 10px;"><i class="fas fa-lightbulb" style="color: var(--turquoise);"></i> 7 Coisas que eu gostaria que tivessem me contado</h2>
+                <p style="color: var(--gray-text);">Se pudéssemos voltar no tempo, estes seriam os 7 conselhos fundamentais para tornar sua jornada mais leve:</p>
+                
+                <div class="seven-things-grid">
+                    
+                    <div class="thing-card">
+                        <div class="thing-number">1</div>
+                        <h4><i class="fas fa-map-signs"></i> Plano Perfeito?</h4>
+                        <p><strong>Ninguém tem tudo planejado.</strong> A maioria das pessoas está tão perdida quanto você. Não se cobre por não ter todas as respostas agora.</p>
+                    </div>
+
+                    <div class="thing-card">
+                        <div class="thing-number">2</div>
+                        <h4><i class="fas fa-user-friends"></i> Conexões</h4>
+                        <p><strong>Fazer amigos importa muito.</strong> São os colegas que compartilham resumos, ajudam em dias difíceis e tornam a rotina leve.</p>
+                    </div>
+
+                    <div class="thing-card">
+                        <div class="thing-number">3</div>
+                        <h4><i class="fas fa-graduation-cap"></i> Caminhos Libertos</h4>
+                        <p><strong>Seu curso não define toda a sua vida.</strong> O mundo real é dinâmico. A faculdade é parte da sua história, não ela inteira.</p>
+                    </div>
+
+                    <div class="thing-card">
+                        <div class="thing-number">4</div>
+                        <h4><i class="fas fa-star"></i> Notas vs Valor</h4>
+                        <p><strong>Notas não são tudo.</strong> O mercado valoriza comunicação, trabalho em equipe e resolução de problemas. Não se reduza a um número.</p>
+                    </div>
+
+                    <div class="thing-card">
+                        <div class="thing-number">5</div>
+                        <h4><i class="fas fa-eye-slash"></i> Foco em Você</h4>
+                        <p><strong>Não se compare com os outros.</strong> Cada um possui uma história e desafios diferentes. A única comparação justa é com quem você era ontem.</p>
+                    </div>
+
+                    <div class="thing-card">
+                        <div class="thing-number">6</div>
+                        <h4><i class="fas fa-hands-helping"></i> Maturidade</h4>
+                        <p><strong>Pedir ajuda é um sinal de força.</strong> Buscar orientadores, veteranos e professores demonstra maturidade para evoluir.</p>
+                    </div>
+
+                    <div class="thing-card">
+                        <div class="thing-number">7</div>
+                        <h4><i class="fas fa-bolt"></i> O Tempo Voa</h4>
+                        <p><strong>A faculdade passa rápido.</strong> Em pouco tempo surgem os estágios e a formatura. Aproveite os eventos, faça memórias e curta cada etapa.</p>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </main>
 
@@ -145,7 +272,7 @@
         <div class="footer-bottom">&copy; 2026 Universidade Santa Cecília (UNISANTA). Todos os direitos reservados.</div>
     </footer>
 
-    <!-- LÓGICA INTELIGENTE DE SESSÃO -->
+    <!-- SESSÃO -->
     <script>
         window.onload = function() {
             const usuarioLogado = localStorage.getItem('unistart_sessao_ativa');
